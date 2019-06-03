@@ -13,9 +13,10 @@
 	<!--dubbo 发布服务 -->
 	<!-- 提供方应用信息  用于计算依赖关系 -->
 	<dubbo:application name="taotao-content"/>
-	<dubbo:registry group="dubbo" address="47.93.32.124:2181" protocol="zookeeper"/>
+	<dubbo:registry  address="47.93.32.124:2181" protocol="zookeeper"/>
 	<!-- 用dubb协议在20881 暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20881"/>
 	<!-- 声明需要暴露的服务接口 -->
-	<!-- <dubbo:service interface="com.taotao.service.TestService" ref="testServiceImpl"  /> -->
+	<dubbo:service interface="com.taotao.content.service.ContentCategoryService" ref="contentCategoryServiceImpl" timeout="300000"/>
+	<dubbo:service interface="com.taotao.content.service.ContentService" ref="contentServiceImpl" timeout="300000"/>
 </beans>
